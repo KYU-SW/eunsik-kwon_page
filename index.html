@@ -226,6 +226,17 @@
             background: var(--primary-dark);
         }
 
+        /* 새롭게 추가된 텍스트 왼쪽 정렬 및 여백 조절 클래스 */
+        .content-box {
+            text-align: left;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .content-box ul {
+            list-style-position: inside;
+        }
+
         footer {
             text-align: center;
             padding: 2rem 0;
@@ -243,86 +254,127 @@
         <i class="fa-solid fa-vr-cardboard"></i> DXP Lab
     </a>
     <ul class="nav-links">
-        <li><a href="#" class="active"><i class="fa-solid fa-wand-magic-sparkles"></i> 현재 페이지 (Modern)</a></li>
-        <!-- 이전 페이지 파일명을 old.html 혹은 previous.html 로 맞추어 학생들에게 링크 이동을 시연하시면 됩니다 -->
-        <li><a href="index_initial.html"><i class="fa-solid fa-clock-rotate-left"></i> 이전 페이지 (Basic)</a></li>
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
     </ul>
 </nav>
 
 <!-- Hero Section -->
-<header class="hero">
+<header class="hero" id="home">
+    <img src="https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/485/f5b5a1b608999122ff80537cdd312559_res.jpeg" alt="Profile" style="width: 150px; height: 150px; border-radius: 50%; border: 4px solid var(--white); margin-bottom: 1rem; object-fit: cover; background-color: var(--white);">
     <h1>Eunsik Kwon</h1>
-    <p class="role">Professor & Director of DXP Lab</p>
+    <p class="role">사용자를 이해하고 더 나은 경험을 창출하는 프론트엔드 개발자입니다.</p>
 </header>
 
 <main class="container">
     <!-- About Section -->
-    <section class="about-card">
+    <section class="about-card" id="about">
         <h2><i class="fa-solid fa-user-tie"></i> About Me</h2>
-        <p>
-            인간과 컴퓨터의 상호작용(HCI)을 연구하며, 가상현실(VR) 및 증강현실(AR) 환경에서의 
-            사용자 경험 개선과 <strong>사이버멀미(Cybersickness) 저감 기술</strong>에 집중하고 있습니다. 
-            데이터 전처리 및 분석 역량을 바탕으로 국방(National Defense) 및 의료 등 다양한 도메인을 위한 초실감형 몰입 기술을 탐구합니다.
-        </p>
+        <div class="content-box">
+            <p><strong>자기소개:</strong> 안녕하세요! 끊임없이 성장하며 사용자를 위한 가치를 고민하는 개발자 권은식입니다.</p>
+            <p><strong>소속:</strong> 건양대학교 국방XR학과</p>
+            <p><strong>관심 분야:</strong> XR기술</p>
+            <p><strong>성격 및 강점:</strong> 새로운 기술을 빠르게 습득하는 것을 즐기며, 원활한 의사소통으로 팀 프로젝트에서 시너지를 만듭니다.</p>
+        </div>
     </section>
 
-    <h2 class="section-title">Research Interests</h2>
+    <!-- Vision Section -->
+    <section class="about-card" id="vision">
+        <h2><i class="fa-solid fa-lightbulb"></i> Vision</h2>
+        <div class="content-box">
+            <p><strong>진로 목표:</strong> 글로벌 IT 기업의 시니어 프론트엔드 엔지니어</p>
+            <p><strong>전문가상:</strong> 기술적인 깊이는 물론, 비즈니스 목표와 사용자의 니즈를 동시에 이해하고 해결책을 제시하는 개발자가 되고 싶습니다.</p>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="about-card" id="courses">
+        <h2><i class="fa-solid fa-book"></i> Courses</h2>
+        <div class="content-box">
+            <ul>
+                <li>웹 프로그래밍 기초 및 실습</li>
+                <li>자료구조 및 알고리즘</li>
+                <li>인간-컴퓨터 상호작용(HCI) 개론</li>
+            </ul>
+        </div>
+    </section>
+
+    <h2 class="section-title" id="projects">Projects</h2>
     
     <!-- Cards Section -->
     <section class="card-grid">
         <!-- Card 1 -->
         <article class="card">
-            <img src="https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?auto=format&fit=crop&w=600&q=80" alt="VR Headset" class="card-img">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" alt="Web Development" class="card-img">
             <div class="card-content">
-                <i class="fa-solid fa-shield-halved"></i>
-                <h3>XR for National Defense</h3>
-                <p>국방 훈련을 위한 초실감형 메타버스 인터페이스 연구 및 인공지능 기반 인간 검증 데이터셋 구축.</p>
+                <i class="fa-solid fa-laptop-code"></i>
+                <h3>포트폴리오 웹사이트 구축</h3>
+                <p><strong>역할:</strong> 프론트엔드 기획 및 개발 (개인 프로젝트)</p>
+                <p><strong>결과물:</strong> HTML, CSS를 활용한 반응형 웹페이지 구현</p>
             </div>
         </article>
 
         <!-- Card 2 -->
         <article class="card">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Data Analysis" class="card-content-img card-img">
+            <img src="https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?auto=format&fit=crop&w=600&q=80" alt="VR Research" class="card-img">
             <div class="card-content">
-                <i class="fa-solid fa-eye"></i>
-                <h3>Cybersickness Mitigation</h3>
-                <p>시선 추적(Eye-tracking) 및 시각/햅틱 피드백을 활용한 자율주행 및 VR 환경 내 사이버멀미 분석 및 저감 솔루션.</p>
-            </div>
-        </article>
-
-        <!-- Card 3 -->
-        <article class="card">
-            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80" alt="Medical Technology" class="card-img">
-            <div class="card-content">
-                <i class="fa-solid fa-bed-pulse"></i>
-                <h3>Digital Therapeutics</h3>
-                <p>병상 환자(Bedridden Patients) 및 교통약자를 위한 VR 기반 치료/편의 기술 및 상호작용 인터페이스 설계.</p>
+                <i class="fa-solid fa-vr-cardboard"></i>
+                <h3>VR 환경 사용성 개선 연구</h3>
+                <p><strong>역할:</strong> 실험 데이터 수집 및 UI/UX 분석</p>
+                <p><strong>결과물:</strong> 사이버멀미 저감을 위한 인터페이스 프로토타입</p>
             </div>
         </article>
     </section>
 
+    <!-- Skills Section -->
+    <section class="about-card" id="skills">
+        <h2><i class="fa-solid fa-code"></i> Skills</h2>
+        <div class="content-box">
+            <p><strong>보유 기술:</strong> HTML, CSS, JavaScript, Python</p>
+            <p><strong>학습 중:</strong> React, TypeScript, Node.js</p>
+            <p><strong>사용 도구:</strong> Git, GitHub, Figma, VS Code</p>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section class="about-card" id="activities">
+        <h2><i class="fa-solid fa-people-group"></i> Activities</h2>
+        <div class="content-box">
+            <ul>
+                <li><strong>동아리:</strong> 교내 웹 프로그래밍 동아리 부원 (2025 - 현재)</li>
+                <li><strong>특강:</strong> 웹 프론트엔드 최신 동향 및 프레임워크 특강 수료</li>
+                <li><strong>공모전:</strong> 교내 IT 해커톤 우수상 수상 (2025.11)</li>
+                <li><strong>발표:</strong> DXP Lab 연구 세미나 최신 기술 동향 발표</li>
+            </ul>
+        </div>
+    </section>
+
     <!-- Contact Section -->
-    <section class="contact-section">
-        <h2>Let's Connect</h2>
-        <p style="margin-top: 10px; color: var(--text-light);">연구 협력이나 DXP 연구실에 관심이 있으시다면 언제든 연락주세요.</p>
+    <section class="contact-section" id="contact">
+        <h2>Contact Me</h2>
+        <p style="margin-top: 10px; color: var(--text-light);">궁금한 점이 있으시거나 프로젝트 협업을 원하신다면 언제든 연락해주세요!</p>
         <div class="contact-links">
-            <a href="mailto:example@korea.ac.kr" class="btn btn-fill">
+            <a href="mailto:example@konyang.ac.kr" class="btn btn-fill">
                 <i class="fa-solid fa-envelope"></i> Email Me
             </a>
             <a href="https://github.com" class="btn btn-outline" target="_blank">
                 <i class="fa-brands fa-github"></i> GitHub
             </a>
-            <a href="#" class="btn btn-outline">
-                <i class="fa-solid fa-globe"></i> Lab Website
+            <a href="https://blog.naver.com" class="btn btn-outline" target="_blank">
+                <i class="fa-solid fa-blog"></i> Blog
+            </a>
+            <a href="https://instagram.com" class="btn btn-outline" target="_blank">
+                <i class="fa-brands fa-instagram"></i> SNS
             </a>
         </div>
     </section>
 </main>
 
 <footer>
-    <p>&copy; 2026 Eunsik Kwon & DXP Lab. All rights reserved.</p>
+    <p>&copy; 2026 Hanseob Kim & DXP Lab. All rights reserved.</p>
 </footer>
 
 </body>
 </html>
-
