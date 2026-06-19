@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eunsik kwon | DXP Lab</title>
+    <title>Eunsik Kwon | Portfolio</title>
     <!-- 폰트어썸 (아이콘) 무료 CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- 구글 폰트 (Pretendard 대체용 널리 쓰이는 Noto Sans KR) -->
@@ -11,14 +11,17 @@
     
     <style>
         :root {
-            /* 건양대학교 메인 그린 컬러 톤 적용 */
-            --primary-color: #005a3c; 
-            --primary-light: #007a52;
-            --primary-dark: #003d29;
-            --text-color: #333333;
-            --text-light: #666666;
-            --bg-color: #f4f7f6;
+            --primary-color: #d71920; 
+            --primary-light: #ff3b3f;
+            --primary-dark: #8f1117;
+            --ink: #101010;
+            --panel: #181818;
+            --line: #303030;
+            --text-color: #f4f4f4;
+            --text-light: #c9c9c9;
+            --bg-color: #0b0b0c;
             --white: #ffffff;
+            --soft-white: #f7f7f7;
             --transition: all 0.3s ease;
         }
 
@@ -32,7 +35,12 @@
             font-family: 'Noto Sans KR', sans-serif;
             line-height: 1.6;
             color: var(--text-color);
-            background-color: var(--bg-color);
+            background:
+                linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px),
+                linear-gradient(0deg, rgba(255,255,255,0.035) 1px, transparent 1px),
+                radial-gradient(circle at top left, rgba(215,25,32,0.22), transparent 34rem),
+                var(--bg-color);
+            background-size: 42px 42px, 42px 42px, auto;
             padding-top: 70px; /* 네비게이션 바 높이만큼 여백 */
         }
 
@@ -42,19 +50,22 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background-color: rgba(12,12,13,0.92);
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.35);
+            backdrop-filter: blur(16px);
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1rem 5%;
             z-index: 1000;
+            gap: 1.5rem;
         }
 
         .nav-logo {
             font-size: 1.2rem;
             font-weight: 700;
-            color: var(--primary-color);
+            color: var(--soft-white);
             text-decoration: none;
             display: flex;
             align-items: center;
@@ -64,45 +75,85 @@
         .nav-links {
             list-style: none;
             display: flex;
-            gap: 20px;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text-color);
+            color: var(--text-light);
             font-weight: 500;
-            padding: 8px 16px;
-            border-radius: 20px;
+            padding: 8px 12px;
+            border-radius: 6px;
             transition: var(--transition);
+            white-space: nowrap;
+            font-size: 0.95rem;
         }
 
         .nav-links a:hover {
-            background-color: var(--bg-color);
-            color: var(--primary-color);
+            background-color: rgba(255,255,255,0.08);
+            color: var(--white);
         }
 
         .nav-links a.active {
             background-color: var(--primary-color);
             color: var(--white);
+            box-shadow: 0 0 0 1px rgba(255,255,255,0.1), 0 10px 24px rgba(215,25,32,0.28);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            background:
+                linear-gradient(135deg, rgba(0,0,0,0.92) 0%, rgba(38,7,9,0.94) 58%, rgba(143,17,23,0.95) 100%),
+                linear-gradient(45deg, transparent 48%, rgba(255,255,255,0.08) 49%, rgba(255,255,255,0.08) 51%, transparent 52%);
             color: var(--white);
-            padding: 5rem 2rem;
+            padding: 5.8rem 2rem 6.2rem;
             text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(115deg, transparent 0 35%, rgba(255,255,255,0.09) 35% 36%, transparent 36% 100%),
+                repeating-linear-gradient(90deg, rgba(255,255,255,0.06) 0 1px, transparent 1px 92px);
+            opacity: 0.65;
+            pointer-events: none;
+        }
+
+        .hero > * {
+            position: relative;
+            z-index: 1;
         }
 
         .hero h1 {
             font-size: 2.8rem;
             margin-bottom: 1rem;
+            letter-spacing: 0;
+            text-transform: uppercase;
         }
 
         .hero .role {
             font-size: 1.2rem;
             opacity: 0.9;
             margin-bottom: 2rem;
+            color: #f2d9d9;
+        }
+
+        .hero-profile {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid var(--white);
+            margin-bottom: 1rem;
+            object-fit: cover;
+            background-color: var(--white);
+            box-shadow: 0 0 0 5px rgba(215,25,32,0.6), 0 18px 42px rgba(0,0,0,0.48);
         }
 
         .container {
@@ -114,12 +165,15 @@
 
         /* About Section */
         .about-card {
-            background: var(--white);
-            border-radius: 12px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.035));
+            border: 1px solid rgba(255,255,255,0.12);
+            border-left: 4px solid var(--primary-color);
+            border-radius: 8px;
             padding: 2.5rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 18px 45px rgba(0,0,0,0.32);
             margin-bottom: 3rem;
             text-align: center;
+            backdrop-filter: blur(10px);
         }
 
         .about-card h2 {
@@ -127,11 +181,17 @@
             margin-bottom: 1rem;
         }
 
+        section,
+        header,
+        .section-title {
+            scroll-margin-top: 130px;
+        }
+
         /* Cards Layout (CSS Grid) */
         .section-title {
             text-align: center;
             margin-bottom: 2rem;
-            color: var(--text-color);
+            color: var(--soft-white);
         }
 
         .card-grid {
@@ -142,22 +202,25 @@
         }
 
         .card {
-            background: var(--white);
-            border-radius: 12px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 18px 45px rgba(0,0,0,0.28);
             transition: var(--transition);
         }
 
         .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            transform: translateY(-8px);
+            border-color: rgba(215,25,32,0.75);
+            box-shadow: 0 22px 55px rgba(0,0,0,0.42), 0 0 0 1px rgba(215,25,32,0.35);
         }
 
         .card-img {
             width: 100%;
             height: 200px;
             object-fit: cover;
+            filter: grayscale(0.25) contrast(1.08);
         }
 
         .card-content {
@@ -183,10 +246,11 @@
         /* Contact Section */
         .contact-section {
             text-align: center;
-            background: var(--white);
+            background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
             padding: 3rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.12);
+            box-shadow: 0 18px 45px rgba(0,0,0,0.3);
         }
 
         .contact-links {
@@ -201,7 +265,7 @@
             align-items: center;
             gap: 8px;
             padding: 10px 24px;
-            border-radius: 30px;
+            border-radius: 6px;
             text-decoration: none;
             font-weight: 500;
             transition: var(--transition);
@@ -209,17 +273,19 @@
 
         .btn-outline {
             border: 2px solid var(--primary-color);
-            color: var(--primary-color);
+            color: var(--white);
         }
 
         .btn-outline:hover {
             background: var(--primary-color);
             color: var(--white);
+            box-shadow: 0 12px 24px rgba(215,25,32,0.24);
         }
 
         .btn-fill {
             background: var(--primary-color);
             color: var(--white);
+            border: 2px solid var(--primary-color);
         }
 
         .btn-fill:hover {
@@ -231,10 +297,54 @@
             text-align: left;
             max-width: 700px;
             margin: 0 auto;
+            color: var(--text-light);
+        }
+
+        .content-box strong {
+            color: var(--soft-white);
         }
 
         .content-box ul {
-            list-style-position: inside;
+            list-style: none;
+        }
+
+        .content-box li {
+            position: relative;
+            padding-left: 1.25rem;
+        }
+
+        .content-box li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.72rem;
+            width: 7px;
+            height: 7px;
+            background: var(--primary-color);
+            transform: rotate(45deg);
+        }
+
+        .content-box p + p,
+        .content-box li + li {
+            margin-top: 0.7rem;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 0.7rem;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.45rem 0.85rem;
+            border-radius: 6px;
+            background: rgba(215,25,32,0.12);
+            border: 1px solid rgba(215,25,32,0.42);
+            color: var(--soft-white);
+            font-weight: 500;
         }
 
         footer {
@@ -242,7 +352,46 @@
             padding: 2rem 0;
             color: var(--text-light);
             font-size: 0.9rem;
-            border-top: 1px solid #e2e8f0;
+            border-top: 1px solid rgba(255,255,255,0.12);
+        }
+
+        @media (max-width: 860px) {
+            body {
+                padding-top: 140px;
+            }
+
+            .navbar {
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 0.9rem 5%;
+            }
+
+            .nav-links {
+                justify-content: flex-start;
+                gap: 6px;
+            }
+
+            .nav-links a {
+                padding: 6px 10px;
+                font-size: 0.88rem;
+            }
+
+            .hero {
+                padding: 4rem 1.25rem;
+            }
+
+            .hero h1 {
+                font-size: 2.1rem;
+            }
+
+            .about-card,
+            .contact-section {
+                padding: 1.5rem;
+            }
+
+            .contact-links {
+                flex-wrap: wrap;
+            }
         }
     </style>
 </head>
@@ -251,21 +400,25 @@
 <!-- Top Navigation -->
 <nav class="navbar">
     <a href="#" class="nav-logo">
-        <i class="fa-solid fa-vr-cardboard"></i> DXP Lab
+        <i class="fa-solid fa-id-card"></i> Eunsik Kwon
     </a>
     <ul class="nav-links">
         <li><a href="#home" class="active">Home</a></li>
-        <li><a href="#about">About</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#vision">Vision</a></li>
+        <li><a href="#courses">Courses</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#activities">Activities</a></li>
         <li><a href="#contact">Contact</a></li>
     </ul>
 </nav>
 
 <!-- Hero Section -->
 <header class="hero" id="home">
-    <img src="https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/485/f5b5a1b608999122ff80537cdd312559_res.jpeg" alt="Profile" style="width: 150px; height: 150px; border-radius: 50%; border: 4px solid var(--white); margin-bottom: 1rem; object-fit: cover; background-color: var(--white);">
+    <img src="assets/profile.jpg" alt="권은식 프로필 사진" class="hero-profile">
     <h1>Eunsik Kwon</h1>
-    <p class="role">사용자를 이해하고 더 나은 경험을 창출하는 프론트엔드 개발자입니다.</p>
+    <p class="role">XR 기술을 통해 현실과 디지털 경험을 연결하는 개발자를 꿈꿉니다.</p>
 </header>
 
 <main class="container">
@@ -273,10 +426,10 @@
     <section class="about-card" id="about">
         <h2><i class="fa-solid fa-user-tie"></i> About Me</h2>
         <div class="content-box">
-            <p><strong>자기소개:</strong> 안녕하세요! 끊임없이 성장하며 사용자를 위한 가치를 고민하는 개발자 권은식입니다.</p>
+            <p><strong>자기소개:</strong> 안녕하세요! 현재 건양대 재학중이며 xr분야를 공부하고 있는 권은식 입니다.</p>
             <p><strong>소속:</strong> 건양대학교 국방XR학과</p>
-            <p><strong>관심 분야:</strong> XR기술</p>
-            <p><strong>성격 및 강점:</strong> 새로운 기술을 빠르게 습득하는 것을 즐기며, 원활한 의사소통으로 팀 프로젝트에서 시너지를 만듭니다.</p>
+            <p><strong>관심 분야:</strong> XR 기술, VR/AR 콘텐츠, 웹 인터페이스, 사용자 경험</p>
+            <p><strong>성격 및 강점:</strong> 소심한 면이 있지만 사람들과 잘 지내기 위해 노력하며, 팀 활동에서 민폐를 덜 끼치기 위해 맡은 일을 책임감 있게 해내려 합니다.</p>
         </div>
     </section>
 
@@ -284,8 +437,8 @@
     <section class="about-card" id="vision">
         <h2><i class="fa-solid fa-lightbulb"></i> Vision</h2>
         <div class="content-box">
-            <p><strong>진로 목표:</strong> 글로벌 IT 기업의 시니어 프론트엔드 엔지니어</p>
-            <p><strong>전문가상:</strong> 기술적인 깊이는 물론, 비즈니스 목표와 사용자의 니즈를 동시에 이해하고 해결책을 제시하는 개발자가 되고 싶습니다.</p>
+            <p><strong>진로 목표:</strong> 아직 구체적인 진로는 고민 중이지만, XR 분야에서 배운 경험을 바탕으로 IT 업계에서 성장하는 것을 생각하고 있습니다.</p>
+            <p><strong>전문가상:</strong> 다양한 기술과 경험을 쌓으며 사용자의 문제를 이해하고 해결할 수 있는 IT 전문가가 되고 싶습니다.</p>
         </div>
     </section>
 
@@ -294,36 +447,39 @@
         <h2><i class="fa-solid fa-book"></i> Courses</h2>
         <div class="content-box">
             <ul>
-                <li>웹 프로그래밍 기초 및 실습</li>
-                <li>자료구조 및 알고리즘</li>
-                <li>인간-컴퓨터 상호작용(HCI) 개론</li>
+                <li>메타버스 프로그래밍</li>
+                <li>실감미디어 컴퓨팅개론</li>
+                <li>XR문화지형도</li>
+                <li>DYC_역사콘텐츠 크리에이트_스토리</li>
+                <li>DYT 유트브 크링이터</li>
+                <li>SDG_지역사회 문제해결</li>
             </ul>
         </div>
     </section>
 
-    <h2 class="section-title" id="projects">Projects</h2>
+    <h2 class="section-title" id="projects"><i class="fa-solid fa-diagram-project"></i> Projects</h2>
     
     <!-- Cards Section -->
     <section class="card-grid">
         <!-- Card 1 -->
         <article class="card">
-            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" alt="Web Development" class="card-img">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" alt="AI 활용 아이디어 공모전" class="card-img">
             <div class="card-content">
                 <i class="fa-solid fa-laptop-code"></i>
-                <h3>포트폴리오 웹사이트 구축</h3>
-                <p><strong>역할:</strong> 프론트엔드 기획 및 개발 (개인 프로젝트)</p>
-                <p><strong>결과물:</strong> HTML, CSS를 활용한 반응형 웹페이지 구현</p>
+                <h3>AI 활용 아이디어 공모전</h3>
+                <p><strong>역할:</strong> 아이디어 기획 및 발표 자료 구성 참여</p>
+                <p><strong>결과물:</strong> AI 기술을 활용한 문제 해결 아이디어 제안</p>
             </div>
         </article>
 
         <!-- Card 2 -->
         <article class="card">
-            <img src="https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?auto=format&fit=crop&w=600&q=80" alt="VR Research" class="card-img">
+            <img src="https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?auto=format&fit=crop&w=600&q=80" alt="로블록스 영화 장면 구현 팀 프로젝트" class="card-img">
             <div class="card-content">
                 <i class="fa-solid fa-vr-cardboard"></i>
-                <h3>VR 환경 사용성 개선 연구</h3>
-                <p><strong>역할:</strong> 실험 데이터 수집 및 UI/UX 분석</p>
-                <p><strong>결과물:</strong> 사이버멀미 저감을 위한 인터페이스 프로토타입</p>
+                <h3>로블록스 영화 장면 구현 팀 프로젝트</h3>
+                <p><strong>역할:</strong> Roblox Studio를 활용한 장면 구성 및 팀 프로젝트 수행</p>
+                <p><strong>결과물:</strong> 영화 속 장면을 로블록스 환경에서 재현한 콘텐츠 구현</p>
             </div>
         </article>
     </section>
@@ -332,9 +488,12 @@
     <section class="about-card" id="skills">
         <h2><i class="fa-solid fa-code"></i> Skills</h2>
         <div class="content-box">
-            <p><strong>보유 기술:</strong> HTML, CSS, JavaScript, Python</p>
-            <p><strong>학습 중:</strong> React, TypeScript, Node.js</p>
-            <p><strong>사용 도구:</strong> Git, GitHub, Figma, VS Code</p>
+            <p><strong>현재 사용 가능:</strong></p>
+            <div class="tag-list">
+                <span class="tag">Unity Game Engine</span>
+                <span class="tag">Roblox</span>
+                <span class="tag">Python</span>
+            </div>
         </div>
     </section>
 
@@ -343,37 +502,31 @@
         <h2><i class="fa-solid fa-people-group"></i> Activities</h2>
         <div class="content-box">
             <ul>
-                <li><strong>동아리:</strong> 교내 웹 프로그래밍 동아리 부원 (2025 - 현재)</li>
-                <li><strong>특강:</strong> 웹 프론트엔드 최신 동향 및 프레임워크 특강 수료</li>
-                <li><strong>공모전:</strong> 교내 IT 해커톤 우수상 수상 (2025.11)</li>
-                <li><strong>발표:</strong> DXP Lab 연구 세미나 최신 기술 동향 발표</li>
+                <li><strong>동아리:</strong> 예인</li>
+                <li><strong>특강:</strong> XR 관련 특강과 바이브코딩 특강 수강</li>
+                <li><strong>공모전:</strong> AI 활용 아이디어 공모전 참가 경험</li>
+                <li><strong>발표:</strong> 대학교 팀 프로젝트 발표 경험</li>
             </ul>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section class="contact-section" id="contact">
-        <h2>Contact Me</h2>
-        <p style="margin-top: 10px; color: var(--text-light);">궁금한 점이 있으시거나 프로젝트 협업을 원하신다면 언제든 연락해주세요!</p>
+        <h2><i class="fa-solid fa-paper-plane"></i> Contact</h2>
+        <p style="margin-top: 10px; color: var(--text-light);">이메일과 GitHub를 통해 저의 활동을 확인하실 수 있습니다.</p>
         <div class="contact-links">
-            <a href="mailto:example@konyang.ac.kr" class="btn btn-fill">
-                <i class="fa-solid fa-envelope"></i> Email Me
+            <a href="mailto:zexal3166@gmail.com" class="btn btn-fill">
+                <i class="fa-solid fa-envelope"></i> Email
             </a>
-            <a href="https://github.com" class="btn btn-outline" target="_blank">
+            <a href="https://github.com/zexal3166-eng" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
                 <i class="fa-brands fa-github"></i> GitHub
-            </a>
-            <a href="https://blog.naver.com" class="btn btn-outline" target="_blank">
-                <i class="fa-solid fa-blog"></i> Blog
-            </a>
-            <a href="https://instagram.com" class="btn btn-outline" target="_blank">
-                <i class="fa-brands fa-instagram"></i> SNS
             </a>
         </div>
     </section>
 </main>
 
 <footer>
-    <p>&copy; 2026 Hanseob Kim & DXP Lab. All rights reserved.</p>
+    <p>&copy; 2026 Eunsik Kwon. All rights reserved.</p>
 </footer>
 
 </body>
